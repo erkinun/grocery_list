@@ -1,12 +1,13 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './EditableTitle.css'
 
 const EditableTitle = ({ title, onChange }) => {
   const [hidden, setHidden] = useState(true)
 
+  useEffect(() => setHidden(!title), [title])
+
   const handleTitle = (title) => {
     if (title) {
-      console.log({ title, msg: 'why not!' })
       onChange(title)
     } else {
       setHidden(true)

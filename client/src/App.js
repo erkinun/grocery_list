@@ -1,15 +1,26 @@
 import { useEffect, useState } from 'react'
+import { v4 as uuidv4 } from 'uuid'
+
 import './App.css'
 import GroceryList from './components/GroceryList'
 
 function App() {
   const [grocery, setGrocery] = useState(null)
+  const [id, setId] = useState(localStorage.getItem('id'))
 
-  // TODO init a session id and store it in local storage
   useEffect(() => {
-    console.log('initial fetching of data')
+    if (!id) {
+      const freshId = uuidv4()
+      localStorage.setItem('id', freshId)
+      setId(freshId)
+    } else {
+      setId(id)
+    }
+  }, [id])
+
+  useEffect(() => {
     const fetchData = async () => {
-      const data = await fetch('/api/grocery', {
+      const data = await fetch(`/api/grocery/${id}`, {
         method: 'GET',
         headers: new Headers({
           'Content-Type': 'application/json',
@@ -21,25 +32,27 @@ function App() {
     }
 
     fetchData()
-  }, [])
+  }, [id])
 
   useEffect(() => {
-    // todo find a better fix for this
-    console.log({ grocery, msg: 'calling PUT!' })
+    // todo find a better fix for this, how to stop the initial and stupid effect calls
     grocery &&
-      fetch('/api/grocery', {
+      fetch(`/api/grocery/${id}`, {
         method: 'PUT',
         headers: new Headers({
           'Content-Type': 'application/json',
         }),
         body: JSON.stringify(grocery),
       })
-  }, [grocery])
+  }, [grocery, id])
 
   return (
     <div className='App'>
       <header className='App-header'>
-        <GroceryList onChange={(updated) => updated && setGrocery(updated)} />
+        <GroceryList
+          onChange={(updated) => updated && setGrocery(updated)}
+          grocery={grocery}
+        />
       </header>
     </div>
   )
