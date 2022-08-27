@@ -5,12 +5,13 @@ const port = 8080
 
 app.use(express.json())
 
-app.put('/grocery', (req, res) => {
+app.put('/api/grocery', (req, res) => {
+  console.log('recevied ', req.body)
   updateGroceryList(req.body)
   res.json({ status: 'ok' })
 })
 
-app.get('/grocery', (req, res) => {
+app.get('/api/grocery', (req, res) => {
   res.json(getGroceryList())
 })
 

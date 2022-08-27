@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import './EditableTitle.css'
 
-const EditableTitle = () => {
+const EditableTitle = ({ title, onChange }) => {
   const [hidden, setHidden] = useState(true)
 
   const handleTitle = (title) => {
     if (title) {
-      // call on change etc
+      onChange(title)
     } else {
       setHidden(true)
     }
@@ -21,6 +21,7 @@ const EditableTitle = () => {
       )}
       {!hidden && (
         <input
+          value={title || ''}
           onChange={(e) => handleTitle(e.target.value)}
           id='groceryTitle'
         />
