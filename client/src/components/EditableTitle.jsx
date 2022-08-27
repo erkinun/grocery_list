@@ -6,6 +6,7 @@ const EditableTitle = ({ title, onChange }) => {
 
   const handleTitle = (title) => {
     if (title) {
+      console.log({ title, msg: 'why not!' })
       onChange(title)
     } else {
       setHidden(true)

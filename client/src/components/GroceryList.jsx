@@ -5,13 +5,12 @@ import './GroceryList.css'
 const GroceryList = ({ groceryData, onChange }) => {
   const [groceryList, setGroceryList] = useState(groceryData)
 
-  console.log(groceryList)
-
-  const handleTitle = (title) => setGroceryList({ ...groceryList, title })
+  const handleTitle = (title) =>
+    title && setGroceryList({ ...groceryList, title })
 
   useEffect(() => {
-    console.log('grocery List has changed, calling the mothership')
-    onChange(groceryList)
+    console.log('grocery List has changed, calling the mothership', groceryList)
+    groceryList && onChange(groceryList)
   }, [groceryList, onChange])
 
   return (
