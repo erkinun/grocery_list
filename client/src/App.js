@@ -4,9 +4,10 @@ import { v4 as uuidv4 } from 'uuid'
 import './App.css'
 import GroceryList from './components/GroceryList'
 
-// TODO handle tests
 // TODO handle deletion button using on hover etc
 // TODO handle editable text styling
+// TODO add EE branding?
+// TODO fix todo and completed margins
 function App() {
   const [grocery, setGrocery] = useState(null)
   const [id, setId] = useState(localStorage.getItem('id'))

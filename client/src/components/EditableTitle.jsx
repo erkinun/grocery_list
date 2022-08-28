@@ -25,7 +25,6 @@ const EditableTitle = ({ title, onChange }) => {
           value={title || ''}
           onChange={(e) => handleTitle(e.target.value)}
           onBlur={() => setHidden(true)}
-          id='groceryTitle'
         />
       )}
     </div>

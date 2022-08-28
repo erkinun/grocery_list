@@ -1,6 +1,5 @@
 import EditableTitle from './EditableTitle'
 
-// TODO snapshot testing
 const CheckListItem = ({
   item: { id, done, item: title },
   handleCheckedChange,
@@ -11,7 +10,7 @@ const CheckListItem = ({
       <span>
         <input
           type='checkbox'
-          checked={done || false}
+          checked={(done && done !== '') || false}
           onChange={(e) => handleCheckedChange(id, e.target.checked, title)}
         />
       </span>

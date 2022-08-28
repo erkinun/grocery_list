@@ -55,12 +55,13 @@ const CheckList = ({ things = [], onChange }) => {
 
   return (
     <div>
-      <div>
+      <div key='todo'>
         <span className='Checklist__section'>To buy</span>
         {todo
           .concat([{ done: false, item: 'Item x', id: uuidv4() }])
           .map((t) => (
             <CheckListItem
+              key={t.id}
               item={t}
               handleCheckedChange={handleCheckedChange}
               handleItemTextChange={handleItemTextChange}
@@ -69,11 +70,12 @@ const CheckList = ({ things = [], onChange }) => {
       </div>
 
       {completed && (
-        <div className='Checklist__completed'>
+        <div key='completed' className='Checklist__completed'>
           <br />
           <span className='Checklist__section'>Completed</span>
           {completed.map((t) => (
             <CheckListItem
+              key={t.id}
               item={t}
               handleCheckedChange={handleCheckedChange}
               handleItemTextChange={handleItemTextChange}
