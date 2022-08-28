@@ -4,6 +4,8 @@ import { v4 as uuidv4 } from 'uuid'
 import './App.css'
 import GroceryList from './components/GroceryList'
 
+// TODO handle styling
+// TODO handle tests
 function App() {
   const [grocery, setGrocery] = useState(null)
   const [id, setId] = useState(localStorage.getItem('id'))
