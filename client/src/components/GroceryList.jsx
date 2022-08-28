@@ -11,8 +11,6 @@ const GroceryList = ({ grocery, onChange }) => {
   const handleThings = (things) =>
     things && things.length > 0 && onChange({ ...grocery, things })
 
-  //  const lastEdited = dayjs(grocery.lastEdited).fromNow()
-
   return (
     <div className='GroceryList'>
       <div className='GroceryList__title'>

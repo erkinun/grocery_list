@@ -4,10 +4,8 @@ import { v4 as uuidv4 } from 'uuid'
 import './App.css'
 import GroceryList from './components/GroceryList'
 
-// TODO handle styling
 // TODO handle tests
-// TODO handle deletion button
-// TODO handle last edited
+// TODO handle deletion button using on hover etc
 // TODO handle editable text styling
 function App() {
   const [grocery, setGrocery] = useState(null)
@@ -32,7 +30,6 @@ function App() {
         }),
       })
       const response = await data.json()
-      console.log({ response })
       setGrocery(response)
     }
 
