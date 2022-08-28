@@ -1,6 +1,11 @@
 .Checklist__item {
   display: flex;
   margin: 10px 5px;
+  position: relative;
+}
+
+.Checklist__item:hover > .Checklist__item__delete {
+  opacity: 1;
 }
 
 .Checklist__section {
@@ -12,4 +17,17 @@
 .Checklist__completed {
   border-top: 1px solid;
   margin: 10px;
+}
+
+.Checklist__item__delete {
+  color: grey;
+  position: absolute;
+  right: 12px;
+  top: 4px;
+  opacity: 0;
+}
+
+.Checklist__item__delete:hover {
+  cursor: pointer;
+  font-weight: bold;
 }

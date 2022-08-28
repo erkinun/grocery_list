@@ -1,10 +1,12 @@
 import { v4 as uuidv4 } from 'uuid'
 import CheckListItem from './ChecklistItem'
 
-import './ChecklistItem.css'
-
 // TODO refactor these two fns
 const CheckList = ({ things = [], onChange }) => {
+  const handleDelete = (id) => {
+    onChange(things.filter((t) => t.id !== id))
+  }
+
   const handleCheckedChange = (id, checked, item) => {
     if (things.find((t) => t.id === id)) {
       onChange(
@@ -58,6 +60,7 @@ const CheckList = ({ things = [], onChange }) => {
               item={t}
               handleCheckedChange={handleCheckedChange}
               handleItemTextChange={handleItemTextChange}
+              signalDelete={() => handleDelete(t.id)}
             />
           ))}
       </div>

@@ -1,9 +1,12 @@
 import EditableTitle from './EditableTitle'
 
+import './ChecklistItem.css'
+
 const CheckListItem = ({
   item: { id, done, item: title },
   handleCheckedChange,
   handleItemTextChange,
+  signalDelete,
 }) => {
   return (
     <div className='Checklist__item' key={id}>
@@ -27,6 +30,9 @@ const CheckListItem = ({
           onChange={(title) => handleItemTextChange(id, title)}
         />
       )}
+      <span className='Checklist__item__delete' onClick={signalDelete}>
+        X
+      </span>
     </div>
   )
 }
