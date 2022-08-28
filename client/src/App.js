@@ -8,6 +8,9 @@ import GroceryList from './components/GroceryList'
 // TODO handle editable text styling
 // TODO add EE branding?
 // TODO fix todo and completed margins
+// TODO write down compromises in readme
+// TODO for example, using enter, and backspace to create and delete new lines
+// TODO define the checklist prop types sometime
 function App() {
   const [grocery, setGrocery] = useState(null)
   const [id, setId] = useState(localStorage.getItem('id'))

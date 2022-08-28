@@ -1,11 +1,9 @@
-// TODO and then handle the loading state from server
 import { v4 as uuidv4 } from 'uuid'
 import CheckListItem from './ChecklistItem'
 
 import './ChecklistItem.css'
 
-// TODO define the checklist prop types sometime
-// TODO replace close button with last edited?
+// TODO refactor these two fns
 const CheckList = ({ things = [], onChange }) => {
   const handleCheckedChange = (id, checked, item) => {
     if (things.find((t) => t.id === id)) {
@@ -25,11 +23,6 @@ const CheckList = ({ things = [], onChange }) => {
   }
 
   const handleItemTextChange = (id, val) => {
-    if (val === '') {
-      // implicit delete
-      onChange(things.filter((t) => t.id !== id))
-      return
-    }
     // find the item
     // else add it to the items and send back!
     if (things.find((t) => t.id === id)) {
