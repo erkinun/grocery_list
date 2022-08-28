@@ -2,10 +2,10 @@
 import { v4 as uuidv4 } from 'uuid'
 import CheckListItem from './ChecklistItem'
 
-import EditableTitle from './EditableTitle'
+import './ChecklistItem.css'
 
 // TODO define the checklist prop types sometime
-// TODO divide into two groups
+// TODO replace close button with last edited?
 const CheckList = ({ things = [], onChange }) => {
   const handleCheckedChange = (id, checked, item) => {
     if (things.find((t) => t.id === id)) {
@@ -55,16 +55,23 @@ const CheckList = ({ things = [], onChange }) => {
 
   return (
     <div>
-      {todo.concat([{ done: false, item: 'Item x', id: uuidv4() }]).map((t) => (
-        <CheckListItem
-          item={t}
-          handleCheckedChange={handleCheckedChange}
-          handleItemTextChange={handleItemTextChange}
-        />
-      ))}
+      <div>
+        <span className='Checklist__section'>To buy</span>
+        {todo
+          .concat([{ done: false, item: 'Item x', id: uuidv4() }])
+          .map((t) => (
+            <CheckListItem
+              item={t}
+              handleCheckedChange={handleCheckedChange}
+              handleItemTextChange={handleItemTextChange}
+            />
+          ))}
+      </div>
+
       {completed && (
-        <div>
-          <span>Completed</span>
+        <div className='Checklist__completed'>
+          <br />
+          <span className='Checklist__section'>Completed</span>
           {completed.map((t) => (
             <CheckListItem
               item={t}

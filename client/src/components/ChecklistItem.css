@@ -1,0 +1,15 @@
+.Checklist__item {
+  display: flex;
+  margin: 10px 5px;
+}
+
+.Checklist__section {
+  margin: 0px 15px;
+  padding: 10px 0px;
+  font-weight: bold;
+}
+
+.Checklist__completed {
+  border-top: 1px solid;
+  margin: 10px;
+}

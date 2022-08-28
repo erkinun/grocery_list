@@ -7,7 +7,7 @@ const CheckListItem = ({
   handleItemTextChange,
 }) => {
   return (
-    <div className='item' key={id}>
+    <div className='Checklist__item' key={id}>
       <span>
         <input
           type='checkbox'
@@ -15,10 +15,19 @@ const CheckListItem = ({
           onChange={(e) => handleCheckedChange(id, e.target.checked, title)}
         />
       </span>
-      <EditableTitle
-        title={title}
-        onChange={(title) => handleItemTextChange(id, title)}
-      />
+      {done ? (
+        <s>
+          <EditableTitle
+            title={title}
+            onChange={(title) => handleItemTextChange(id, title)}
+          />
+        </s>
+      ) : (
+        <EditableTitle
+          title={title}
+          onChange={(title) => handleItemTextChange(id, title)}
+        />
+      )}
     </div>
   )
 }

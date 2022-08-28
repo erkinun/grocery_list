@@ -6,6 +6,9 @@ import GroceryList from './components/GroceryList'
 
 // TODO handle styling
 // TODO handle tests
+// TODO handle deletion button
+// TODO handle last edited
+// TODO handle editable text styling
 function App() {
   const [grocery, setGrocery] = useState(null)
   const [id, setId] = useState(localStorage.getItem('id'))
@@ -44,18 +47,19 @@ function App() {
         headers: new Headers({
           'Content-Type': 'application/json',
         }),
-        body: JSON.stringify(grocery),
+        body: JSON.stringify({ ...grocery, lastEdited: Date.now() }),
       })
   }, [grocery, id])
 
   return (
     <div className='App'>
       <header className='App-header'>
-        <GroceryList
-          onChange={(updated) => updated && setGrocery(updated)}
-          grocery={grocery}
-        />
+        <h1>Grocery List App</h1>
       </header>
+      <GroceryList
+        onChange={(updated) => updated && setGrocery(updated)}
+        grocery={grocery}
+      />
     </div>
   )
 }
