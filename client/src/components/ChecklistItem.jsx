@@ -10,7 +10,7 @@ const CheckListItem = ({
 }) => {
   return (
     <div className='Checklist__item' key={id}>
-      <span>
+      <span className='Checklist__item__checkbox'>
         <input
           type='checkbox'
           checked={(done && done !== '') || false}

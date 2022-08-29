@@ -4,6 +4,11 @@
   position: relative;
 }
 
+.Checklist__item__checkbox {
+  display: flex;
+  justify-content: center;
+}
+
 .Checklist__item:hover > .Checklist__item__delete {
   opacity: 1;
 }

@@ -1,1 +1,13 @@
+.EditableTitle__input {
+  border: 0;
+  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+  border-radius: 5px;
+  padding: 5px;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+}
 
+.EditableTitle__label {
+  padding: 5px;
+}
