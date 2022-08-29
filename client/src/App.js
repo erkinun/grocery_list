@@ -4,9 +4,6 @@ import { v4 as uuidv4 } from 'uuid'
 import './App.css'
 import GroceryList from './components/GroceryList'
 
-// TODO handle editable text styling
-// TODO add EE branding?
-// TODO fix todo and completed margins - also in desktop
 // TODO write down compromises in readme
 // TODO for example, using enter, and backspace to create and delete new lines
 // TODO define the checklist prop types sometime
@@ -55,6 +52,10 @@ function App() {
   return (
     <div className='App'>
       <header className='App-header'>
+        <img
+          alt='logo'
+          src='https://www.equalexperts.com/wp-content/themes/equalexperts/assets/logo.svg'
+        ></img>
         <h1>Grocery List App</h1>
       </header>
       <GroceryList

@@ -22,10 +22,25 @@
 
 .GroceryList__title {
   text-align: center;
-  font-size: 1.375rem;
+  font-size: 28px;
+  font-weight: 600px;
+  line-height: 50px;
   padding: 16px 12px;
 }
 
+@media screen and (min-width: 1024px) {
+  .GroceryList__title {
+    font-size: 38px;
+  }
+}
+
+.GroceryList__checklist {
+  font-size: 20px;
+}
+
 .GroceryList__edited {
+  color: #1795d4;
+  font-weight: 600;
+  line-height: 28px;
   padding: 10px;
 }

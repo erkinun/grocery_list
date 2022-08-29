@@ -17,7 +17,11 @@ const GroceryList = ({ grocery, onChange }) => {
         <EditableTitle title={grocery?.title} onChange={handleTitle} />
       </div>
 
-      <CheckList things={grocery?.things} onChange={handleThings} />
+      <CheckList
+        className='GroceryList__checklist'
+        things={grocery?.things}
+        onChange={handleThings}
+      />
       <div className='GroceryList__edited'>
         Edited: {grocery && dayjs(grocery.lastEdited).fromNow()}
       </div>
