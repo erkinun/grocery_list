@@ -74,6 +74,7 @@ const CheckList = ({ things = [], onChange }) => {
               item={t}
               handleCheckedChange={handleCheckedChange}
               handleItemTextChange={handleItemTextChange}
+              signalDelete={() => handleDelete(t.id)}
             />
           ))}
         </div>
