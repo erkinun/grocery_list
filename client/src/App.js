@@ -8,6 +8,7 @@ import GroceryList from './components/GroceryList'
 // TODO for example, using enter, and backspace to create and delete new lines
 // TODO define the checklist prop types sometime
 // TODO animations on css
+// TODO handle http codes for not found etc
 function App() {
   const [grocery, setGrocery] = useState(null)
   const [id, setId] = useState(localStorage.getItem('id'))
