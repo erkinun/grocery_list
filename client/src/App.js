@@ -4,11 +4,6 @@ import { v4 as uuidv4 } from 'uuid'
 import './App.css'
 import GroceryList from './components/GroceryList'
 
-// TODO write down compromises in readme
-// TODO for example, using enter, and backspace to create and delete new lines
-// TODO define the checklist prop types sometime
-// TODO animations on css
-// TODO handle http codes for not found etc
 function App() {
   const [grocery, setGrocery] = useState(null)
   const [id, setId] = useState(localStorage.getItem('id'))
@@ -39,7 +34,6 @@ function App() {
   }, [id])
 
   useEffect(() => {
-    // todo find a better fix for this, how to stop the initial and stupid effect calls
     grocery &&
       fetch(`/api/grocery/${id}`, {
         method: 'PUT',

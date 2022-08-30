@@ -1,7 +1,6 @@
 import { v4 as uuidv4 } from 'uuid'
 import CheckListItem from './ChecklistItem'
 
-// TODO refactor these two fns
 const CheckList = ({ things = [], onChange }) => {
   const handleDelete = (id) => {
     onChange(things.filter((t) => t.id !== id))

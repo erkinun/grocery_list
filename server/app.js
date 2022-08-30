@@ -5,7 +5,6 @@ const app = express()
 app.use(express.json())
 
 app.put('/api/grocery/:id', (req, res) => {
-  // TODO check param id for both
   updateGroceryList(req.params.id, req.body)
   res.json({ status: 'ok' })
 })
