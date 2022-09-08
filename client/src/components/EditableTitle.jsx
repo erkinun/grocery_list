@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './EditableTitle.css'
 
-const EditableTitle = ({ title, onChange }) => {
+const EditableTitle = ({ title, onChange, htmlFor = 'groceryTitle' }) => {
   const [hidden, setHidden] = useState(true)
 
   const handleTitle = (title) => {
@@ -14,7 +14,7 @@ const EditableTitle = ({ title, onChange }) => {
         <label
           className='EditableTitle__label'
           onClick={() => setHidden(false)}
-          htmlFor='groceryTitle'
+          htmlFor={htmlFor}
         >
           {title || 'Title'}
         </label>

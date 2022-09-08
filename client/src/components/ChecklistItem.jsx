@@ -13,6 +13,7 @@ const CheckListItem = ({
       <span className='Checklist__item__checkbox'>
         <input
           type='checkbox'
+          name='checklist-item'
           checked={(done && done !== '') || false}
           onChange={(e) => handleCheckedChange(id, e.target.checked, title)}
         />
@@ -21,12 +22,14 @@ const CheckListItem = ({
         <s>
           <EditableTitle
             title={title}
+            htmlFor={'checklist-item'}
             onChange={(title) => handleItemTextChange(id, title)}
           />
         </s>
       ) : (
         <EditableTitle
           title={title}
+          htmlFor={'checklist-item'}
           onChange={(title) => handleItemTextChange(id, title)}
         />
       )}

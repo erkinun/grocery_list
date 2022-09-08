@@ -19,7 +19,7 @@ const CheckList = ({ things = [], onChange }) => {
         )
       )
     } else {
-      onChange(things.push({ done: checked, item, id }))
+      onChange([...things, { done: checked, item, id }])
     }
   }
 
@@ -40,7 +40,8 @@ const CheckList = ({ things = [], onChange }) => {
       )
     } else {
       // add and send
-      onChange(things.push({ done: false, item: val, id }))
+      // things.push()
+      onChange([...things, { done: false, item: val, id }])
     }
   }
 
@@ -52,7 +53,7 @@ const CheckList = ({ things = [], onChange }) => {
       <div key='todo' className='Checklist__todo'>
         <span className='Checklist__section'>To buy</span>
         {todo
-          .concat([{ done: false, item: 'Item x', id: uuidv4() }])
+          .concat([{ done: false, item: 'Add new item', id: uuidv4() }])
           .map((t) => (
             <CheckListItem
               key={t.id}
