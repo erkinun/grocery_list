@@ -22,7 +22,7 @@ Installation requires an internet connection, but running the application does n
 
 ## Things to improve
 
-- We can utilise keys such as `Enter`, `Backspace` etc to delete an item, move to the next line on the grocery app.
+- We can add ordering functionality to the list.
 - We can utilise some animations on css to make the application look smoother.
 - At the moment we are using the data availability to make decisions on the API interactions. These can be better refactored to be using HTTP result codes.
 - As we grow the application, state logic can get complicated and we can use a library such as Redux to encapsulate state. At the moment we update servers with every change on the product.

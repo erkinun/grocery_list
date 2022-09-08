@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import './EditableTitle.css'
 
 const EditableTitle = ({ title, onChange, htmlFor = 'groceryTitle' }) => {
@@ -6,10 +6,21 @@ const EditableTitle = ({ title, onChange, htmlFor = 'groceryTitle' }) => {
   const inputRef = useRef(null)
 
   const handleBlur = () => {
-    console.log({ inputRef })
     onChange(inputRef.current.value)
     setHidden(true)
   }
+
+  const handleKeyPress = (key) => {
+    if (key === 'Enter') {
+      handleBlur()
+    }
+  }
+
+  useEffect(() => {
+    if (!hidden) {
+      inputRef.current.focus()
+    }
+  }, [hidden])
 
   return (
     <div className='EditableTitle'>
@@ -19,7 +30,7 @@ const EditableTitle = ({ title, onChange, htmlFor = 'groceryTitle' }) => {
           onClick={() => setHidden(false)}
           htmlFor={htmlFor}
         >
-          {title || 'Title'}
+          {title || 'Click to type in'}
         </label>
       )}
 
@@ -30,6 +41,7 @@ const EditableTitle = ({ title, onChange, htmlFor = 'groceryTitle' }) => {
           defaultValue={title || ''}
           onBlur={() => handleBlur()}
           onMouseLeave={() => handleBlur()}
+          onKeyDown={(e) => handleKeyPress(e.key)}
         />
       )}
     </div>

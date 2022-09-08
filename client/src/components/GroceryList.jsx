@@ -7,14 +7,18 @@ import './GroceryList.css'
 dayjs.extend(relativeTime)
 
 const GroceryList = ({ grocery, onChange }) => {
-  const handleTitle = (title) => title && onChange({ ...grocery, title })
+  const handleTitle = (title) =>
+    (title || title === '') && onChange({ ...grocery, title })
   const handleThings = (things) =>
     things && things.length > 0 && onChange({ ...grocery, things })
 
   return (
     <div className='GroceryList'>
       <div className='GroceryList__title'>
-        <EditableTitle title={grocery?.title} onChange={handleTitle} />
+        <EditableTitle
+          title={grocery?.title || 'Shopping List'}
+          onChange={handleTitle}
+        />
       </div>
 
       <CheckList
