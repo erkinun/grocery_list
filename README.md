@@ -1,6 +1,6 @@
 # Grocery List App
 
-This is a project that was developed for the assigment number: 5b8d0fd276b6d288905ed2f63a934e057e8feca2.
+This is a simple grocery list application created for educational purposes (id 5b8d0fd276b6d288905ed2f63a934e057e8feca2).
 
 ## How to run
 
