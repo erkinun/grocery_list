@@ -15,5 +15,8 @@ const handleTermination = (code) => {
   process.exit()
 }
 
-process.once('SIGINT', handleTermination)
-process.once('SIGTERM', handleTermination)
+process.stdin.resume()
+process.on('SIGINT', handleTermination)
+process.on('SIGTERM', handleTermination)
+process.on('SIGUSR1', handleTermination)
+process.on('SIGUSR2', handleTermination)
