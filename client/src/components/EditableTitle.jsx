@@ -1,11 +1,14 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import './EditableTitle.css'
 
 const EditableTitle = ({ title, onChange, htmlFor = 'groceryTitle' }) => {
   const [hidden, setHidden] = useState(true)
+  const inputRef = useRef(null)
 
-  const handleTitle = (title) => {
-    onChange(title)
+  const handleBlur = () => {
+    console.log({ inputRef })
+    onChange(inputRef.current.value)
+    setHidden(true)
   }
 
   return (
@@ -23,10 +26,10 @@ const EditableTitle = ({ title, onChange, htmlFor = 'groceryTitle' }) => {
       {!hidden && (
         <input
           className='EditableTitle__input'
-          value={title || ''}
-          onChange={(e) => handleTitle(e.target.value)}
-          onBlur={() => setHidden(true)}
-          onMouseLeave={() => setHidden(true)}
+          ref={inputRef}
+          defaultValue={title || ''}
+          onBlur={() => handleBlur()}
+          onMouseLeave={() => handleBlur()}
         />
       )}
     </div>
