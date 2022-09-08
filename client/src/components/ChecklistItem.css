@@ -2,11 +2,20 @@
   display: flex;
   margin: 10px 5px;
   position: relative;
+  line-height: 24px;
 }
 
 .Checklist__item__checkbox {
   display: flex;
   justify-content: center;
+}
+
+.Checklist__item__checkbox__new {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  cursor: pointer;
 }
 
 .Checklist__item:hover > .Checklist__item__delete {

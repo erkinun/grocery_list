@@ -78,7 +78,7 @@ test('lets you check off items from the Completed list', async () => {
 test('lets you check off items from the to Buy list', async () => {
   render(<App />)
 
-  const checkedOnes = screen.queryAllByRole('checkbox', { checked: true })
+  const checkedOnes = await screen.findAllByRole('checkbox', { checked: true })
   const checkbox = await screen.findByRole('checkbox', { checked: false })
 
   fireEvent.click(checkbox)
